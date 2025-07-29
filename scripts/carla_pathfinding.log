@@ -1,0 +1,460 @@
+2025-07-29 17:54:14,771 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 17:54:14,771 - INFO - Connecting to CARLA server...
+2025-07-29 17:54:14,772 - INFO - Connected to CARLA server version: 0.9.15
+2025-07-29 17:54:14,772 - INFO - Loading CARLA world...
+2025-07-29 17:54:14,853 - INFO - Available maps: ['/Game/Carla/Maps/Town04_Opt', '/Game/Carla/Maps/Town03_Opt', '/Game/Carla/Maps/Town05', '/Game/Carla/Maps/Town02_Opt', '/Game/Carla/Maps/Town10HD', '/Game/Carla/Maps/Town01', '/Game/Carla/Maps/Town05_Opt', '/Game/Carla/Maps/Town03', '/Game/Carla/Maps/Town10HD_Opt', '/Game/Carla/Maps/Town01_Opt', '/Game/Carla/Maps/Town02', '/Game/Carla/Maps/Town04']
+2025-07-29 17:54:19,673 - INFO - World 'Town03' loaded successfully
+2025-07-29 17:54:20,478 - INFO - Weather conditions optimized
+2025-07-29 17:54:20,479 - INFO - Spawning vehicle...
+2025-07-29 17:54:20,570 - INFO - Vehicle color set to: 0,39,105
+2025-07-29 17:54:20,918 - INFO - Found 265 available spawn points
+2025-07-29 17:54:20,924 - INFO - ✓ Vehicle spawned successfully at attempt 1
+2025-07-29 17:54:20,924 - INFO - Vehicle location: Location(x=97.278854, y=63.117493, z=0.275307)
+2025-07-29 17:54:20,925 - INFO - Waiting for vehicle to settle...
+2025-07-29 17:54:23,927 - INFO - Setting up spectator view...
+2025-07-29 17:54:23,957 - INFO - Spectator positioned for optimal view
+2025-07-29 17:54:23,957 - INFO - 🗺️ Generating obstacle map...
+2025-07-29 17:54:23,957 - INFO - Starting obstacle grid generation...
+2025-07-29 17:54:23,957 - INFO - Grid origin set to: Location(x=-2.720764, y=-36.882584, z=-0.007266)
+2025-07-29 17:54:24,029 - INFO - Processing 783 objects of type Buildings
+2025-07-29 17:54:24,160 - INFO - Processing 1050 objects of type Walls
+2025-07-29 17:54:24,286 - INFO - Processing 794 objects of type Fences
+2025-07-29 17:54:24,415 - INFO - Processing 1063 objects of type Poles
+2025-07-29 17:54:24,537 - INFO - Processing 11 objects of type TrafficSigns
+2025-07-29 17:54:24,606 - INFO - Processing 864 objects of type Vegetation
+2025-07-29 17:54:24,730 - INFO - Processing 176 objects of type Static
+2025-07-29 17:54:24,747 - INFO - Obstacle grid generated: 23498 obstacle cells (58.7%) from 4741 objects
+2025-07-29 17:54:24,747 - INFO - Obstacle grid generated in 0.79 seconds
+2025-07-29 17:54:24,747 - INFO - Vehicle start position: world(97.3, 63.1) -> grid(100, 100)
+2025-07-29 17:54:24,747 - ERROR - ❌ Vehicle spawned inside obstacle! Trying to find nearby free space...
+2025-07-29 17:54:24,747 - INFO - ✓ Found free space at grid(104, 96)
+2025-07-29 17:54:24,747 - ERROR - ❌ Could not find valid goal position!
+2025-07-29 17:54:24,747 - INFO - 🧹 Starting cleanup process...
+2025-07-29 17:54:24,747 - INFO - Stopping and destroying vehicle...
+2025-07-29 17:54:25,299 - INFO - ✓ Vehicle destroyed
+2025-07-29 17:54:25,424 - INFO - ✓ World settings reset
+2025-07-29 17:54:25,424 - INFO - ✅ Cleanup completed successfully
+2025-07-29 17:54:31,312 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 17:54:31,312 - INFO - Connecting to CARLA server...
+2025-07-29 17:54:31,313 - INFO - Connected to CARLA server version: 0.9.15
+2025-07-29 17:54:31,313 - INFO - Loading CARLA world...
+2025-07-29 17:54:31,386 - INFO - Available maps: ['/Game/Carla/Maps/Town04_Opt', '/Game/Carla/Maps/Town03_Opt', '/Game/Carla/Maps/Town05', '/Game/Carla/Maps/Town02_Opt', '/Game/Carla/Maps/Town10HD', '/Game/Carla/Maps/Town01', '/Game/Carla/Maps/Town05_Opt', '/Game/Carla/Maps/Town03', '/Game/Carla/Maps/Town10HD_Opt', '/Game/Carla/Maps/Town01_Opt', '/Game/Carla/Maps/Town02', '/Game/Carla/Maps/Town04']
+2025-07-29 17:54:35,251 - INFO - World 'Town03' loaded successfully
+2025-07-29 17:54:36,118 - INFO - Weather conditions optimized
+2025-07-29 17:54:36,118 - INFO - Spawning vehicle...
+2025-07-29 17:54:36,238 - INFO - Vehicle color set to: 168,0,27
+2025-07-29 17:54:36,644 - INFO - Found 265 available spawn points
+2025-07-29 17:54:36,650 - INFO - ✓ Vehicle spawned successfully at attempt 1
+2025-07-29 17:54:36,650 - INFO - Vehicle location: Location(x=-101.632477, y=132.628662, z=0.275307)
+2025-07-29 17:54:36,650 - INFO - Waiting for vehicle to settle...
+2025-07-29 17:54:39,653 - INFO - Setting up spectator view...
+2025-07-29 17:54:39,726 - INFO - Spectator positioned for optimal view
+2025-07-29 17:54:39,726 - INFO - 🗺️ Generating obstacle map...
+2025-07-29 17:54:39,726 - INFO - Starting obstacle grid generation...
+2025-07-29 17:54:39,726 - INFO - Grid origin set to: Location(x=-201.632874, y=32.628662, z=-0.007185)
+2025-07-29 17:54:39,815 - INFO - Processing 783 objects of type Buildings
+2025-07-29 17:54:39,981 - INFO - Processing 1050 objects of type Walls
+2025-07-29 17:54:40,111 - INFO - Processing 794 objects of type Fences
+2025-07-29 17:54:40,178 - INFO - Processing 1063 objects of type Poles
+2025-07-29 17:54:40,303 - INFO - Processing 11 objects of type TrafficSigns
+2025-07-29 17:54:40,373 - INFO - Processing 864 objects of type Vegetation
+2025-07-29 17:54:40,435 - INFO - Processing 176 objects of type Static
+2025-07-29 17:54:40,448 - INFO - Obstacle grid generated: 17372 obstacle cells (43.4%) from 4741 objects
+2025-07-29 17:54:40,448 - INFO - Obstacle grid generated in 0.72 seconds
+2025-07-29 17:54:40,449 - INFO - Vehicle start position: world(-101.6, 132.6) -> grid(99, 100)
+2025-07-29 17:54:40,449 - INFO - ✓ Goal set to grid(150, 150)
+2025-07-29 17:54:40,449 - INFO - Goal position: grid(150, 150) -> world(-51.6, 182.6)
+2025-07-29 17:54:40,449 - INFO - Straight-line distance to goal: 71.4 meters
+2025-07-29 17:54:40,449 - INFO - 🧭 Starting path planning with RRT algorithm...
+2025-07-29 17:54:40,449 - INFO - Starting RRT pathfinding from (99, 100) to (150, 150)
+2025-07-29 17:54:40,449 - INFO - RRT parameters: max_iter=8000, step_size=3.0, goal_bias=0.2
+2025-07-29 17:54:40,569 - INFO - RRT progress: iteration 1000, nodes: 315
+2025-07-29 17:54:40,775 - INFO - Path found in 1788 iterations with 556 nodes
+2025-07-29 17:54:40,775 - INFO - Raw path reconstructed with 45 waypoints
+2025-07-29 17:54:40,775 - INFO - Smoothing path with 45 waypoints...
+2025-07-29 17:54:40,777 - INFO - Path smoothed from 45 to 4 waypoints (91.1% reduction)
+2025-07-29 17:54:40,778 - INFO - Path planning completed in 0.33 seconds
+2025-07-29 17:54:40,778 - INFO - ✓ Path found successfully!
+2025-07-29 17:54:40,778 - INFO -   - Waypoints: 4
+2025-07-29 17:54:40,778 - INFO -   - Path length: 98.0 meters
+2025-07-29 17:54:40,778 - INFO -   - Efficiency: 72.9% (vs straight line)
+2025-07-29 17:54:40,778 - INFO - 🎨 Creating visualization...
+2025-07-29 17:54:40,778 - INFO - Creating debug visualization...
+2025-07-29 17:54:40,782 - INFO - Visualizing 800 obstacle points
+2025-07-29 17:54:40,786 - INFO - Visualizing path with 4 waypoints
+2025-07-29 17:54:40,786 - INFO - Debug visualization completed
+2025-07-29 17:54:40,786 - INFO - 🚗 Starting autonomous navigation...
+2025-07-29 17:54:40,787 - INFO - Starting path execution with 4 waypoints
+2025-07-29 17:54:40,787 - INFO - Moving to waypoint 1/4: grid(99, 100) -> world(-102.6, 132.6)
+2025-07-29 17:54:40,787 - INFO - ✓ Reached waypoint 1 (distance: 1.00m)
+2025-07-29 17:54:40,787 - INFO - Moving to waypoint 2/4: grid(99, 115) -> world(-102.6, 147.6)
+2025-07-29 17:54:48,474 - INFO - ✓ Reached waypoint 2 (distance: 1.75m)
+2025-07-29 17:54:48,474 - INFO - Moving to waypoint 3/4: grid(152, 162) -> world(-49.6, 194.6)
+2025-07-29 17:55:13,039 - INFO - ✓ Reached waypoint 3 (distance: 1.78m)
+2025-07-29 17:55:13,039 - INFO - Moving to waypoint 4/4: grid(150, 150) -> world(-51.6, 182.6)
+2025-07-29 17:55:20,429 - INFO - ✓ Reached waypoint 4 (distance: 1.75m)
+2025-07-29 17:55:20,429 - INFO - Path execution completed, stopping vehicle
+2025-07-29 17:55:20,429 - INFO - 🎉 Navigation completed!
+2025-07-29 17:55:20,429 - INFO - 📊 Performance Summary:
+2025-07-29 17:55:20,430 - INFO -   - Total execution time: 39.6 seconds
+2025-07-29 17:55:20,430 - INFO -   - Average speed: 2.5 m/s
+2025-07-29 17:55:20,430 - INFO -   - Planning efficiency: 72.9%
+2025-07-29 17:55:20,430 - INFO -   - Final distance to goal: 1.7 meters
+2025-07-29 17:55:20,430 - INFO - ✅ Goal reached successfully!
+2025-07-29 17:55:20,430 - INFO - Keeping visualization active for 30 seconds...
+2025-07-29 17:55:27,440 - INFO - 🛑 Navigation interrupted by user
+2025-07-29 17:55:27,440 - INFO - 🧹 Starting cleanup process...
+2025-07-29 17:55:27,441 - INFO - Stopping and destroying vehicle...
+2025-07-29 17:55:27,991 - INFO - ✓ Vehicle destroyed
+2025-07-29 17:55:28,142 - INFO - ✓ World settings reset
+2025-07-29 17:55:28,142 - INFO - ✅ Cleanup completed successfully
+2025-07-29 18:16:16,187 - INFO - Connecting to CARLA server...
+2025-07-29 18:16:24,027 - ERROR - Goal position is blocked by obstacle!
+2025-07-29 18:16:27,562 - INFO - Connecting to CARLA server...
+2025-07-29 18:16:35,442 - ERROR - Goal position is blocked by obstacle!
+2025-07-29 18:16:36,730 - INFO - Connecting to CARLA server...
+2025-07-29 18:16:45,278 - INFO - Starting path planning...
+2025-07-29 18:16:45,322 - INFO - Starting path execution with 31 waypoints
+2025-07-29 18:16:45,322 - INFO - Moving to waypoint 1/31
+2025-07-29 18:16:45,322 - INFO - Reached waypoint 1
+2025-07-29 18:16:45,322 - INFO - Moving to waypoint 2/31
+2025-07-29 18:16:49,139 - INFO - Reached waypoint 2
+2025-07-29 18:16:49,139 - INFO - Moving to waypoint 3/31
+2025-07-29 18:16:49,139 - INFO - Reached waypoint 3
+2025-07-29 18:16:49,139 - INFO - Moving to waypoint 4/31
+2025-07-29 18:16:50,093 - INFO - Reached waypoint 4
+2025-07-29 18:16:50,093 - INFO - Moving to waypoint 5/31
+2025-07-29 18:16:51,047 - INFO - Reached waypoint 5
+2025-07-29 18:16:51,047 - INFO - Moving to waypoint 6/31
+2025-07-29 18:16:52,001 - INFO - Reached waypoint 6
+2025-07-29 18:16:52,001 - INFO - Moving to waypoint 7/31
+2025-07-29 18:16:53,056 - INFO - Reached waypoint 7
+2025-07-29 18:16:53,056 - INFO - Moving to waypoint 8/31
+2025-07-29 18:16:54,110 - INFO - Reached waypoint 8
+2025-07-29 18:16:54,110 - INFO - Moving to waypoint 9/31
+2025-07-29 18:16:55,165 - INFO - Reached waypoint 9
+2025-07-29 18:16:55,166 - INFO - Moving to waypoint 10/31
+2025-07-29 18:16:55,996 - INFO - Reached waypoint 10
+2025-07-29 18:16:55,996 - INFO - Moving to waypoint 11/31
+2025-07-29 18:16:56,950 - INFO - Reached waypoint 11
+2025-07-29 18:16:56,951 - INFO - Moving to waypoint 12/31
+2025-07-29 18:16:58,008 - INFO - Reached waypoint 12
+2025-07-29 18:16:58,008 - INFO - Moving to waypoint 13/31
+2025-07-29 18:16:59,063 - INFO - Reached waypoint 13
+2025-07-29 18:16:59,063 - INFO - Moving to waypoint 14/31
+2025-07-29 18:17:00,117 - INFO - Reached waypoint 14
+2025-07-29 18:17:00,118 - INFO - Moving to waypoint 15/31
+2025-07-29 18:17:01,122 - INFO - Reached waypoint 15
+2025-07-29 18:17:01,122 - INFO - Moving to waypoint 16/31
+2025-07-29 18:17:02,126 - INFO - Reached waypoint 16
+2025-07-29 18:17:02,126 - INFO - Moving to waypoint 17/31
+2025-07-29 18:17:03,180 - INFO - Reached waypoint 17
+2025-07-29 18:17:03,180 - INFO - Moving to waypoint 18/31
+2025-07-29 18:17:33,202 - INFO - Moving to waypoint 19/31
+2025-07-29 18:18:03,252 - INFO - Moving to waypoint 20/31
+2025-07-29 18:18:33,289 - INFO - Moving to waypoint 21/31
+2025-07-29 18:19:03,295 - INFO - Moving to waypoint 22/31
+2025-07-29 18:19:33,327 - INFO - Moving to waypoint 23/31
+2025-07-29 18:20:03,359 - INFO - Moving to waypoint 24/31
+2025-07-29 18:20:33,392 - INFO - Moving to waypoint 25/31
+2025-07-29 18:21:03,436 - INFO - Moving to waypoint 26/31
+2025-07-29 18:21:33,470 - INFO - Moving to waypoint 27/31
+2025-07-29 18:22:03,516 - INFO - Moving to waypoint 28/31
+2025-07-29 18:22:33,522 - INFO - Moving to waypoint 29/31
+2025-07-29 18:22:38,743 - INFO - Interrupted by user
+2025-07-29 18:22:40,031 - INFO - Connecting to CARLA server...
+2025-07-29 18:22:40,535 - INFO - Spawning vehicle...
+2025-07-29 18:22:41,005 - INFO - Generating obstacle grid...
+2025-07-29 18:22:41,005 - INFO - Generating obstacle grid...
+2025-07-29 18:22:41,005 - ERROR - Error occurred: type object 'CityObjectLabel' has no attribute 'All'
+2025-07-29 18:34:07,417 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 18:34:07,417 - INFO - Connecting to CARLA server...
+2025-07-29 18:34:07,419 - INFO - Connected to CARLA server version: 0.9.15
+2025-07-29 18:34:07,419 - INFO - Loading CARLA world...
+2025-07-29 18:34:07,490 - INFO - Available maps: ['/Game/Carla/Maps/Town04_Opt', '/Game/Carla/Maps/Town03_Opt', '/Game/Carla/Maps/Town05', '/Game/Carla/Maps/Town02_Opt', '/Game/Carla/Maps/Town10HD', '/Game/Carla/Maps/Town01', '/Game/Carla/Maps/Town05_Opt', '/Game/Carla/Maps/Town03', '/Game/Carla/Maps/Town10HD_Opt', '/Game/Carla/Maps/Town01_Opt', '/Game/Carla/Maps/Town02', '/Game/Carla/Maps/Town04']
+2025-07-29 18:34:11,769 - INFO - World 'Town03' loaded successfully
+2025-07-29 18:34:12,731 - INFO - Weather conditions optimized
+2025-07-29 18:34:12,731 - INFO - Spawning vehicle...
+2025-07-29 18:34:13,323 - INFO - Vehicle spawned at: Location(x=94.885727, y=-195.119690, z=0.275307)
+2025-07-29 18:34:13,323 - INFO - Start location set to: Location(x=0.000000, y=0.000000, z=0.000000)
+2025-07-29 18:34:13,323 - INFO - Goal location set to: Location(x=180.000000, y=120.000000, z=0.500000)
+2025-07-29 18:34:13,323 - INFO - Starting path planning...
+2025-07-29 18:34:13,323 - INFO - Starting obstacle grid generation...
+2025-07-29 18:34:13,323 - INFO - Grid origin set to: Location(x=-100.000000, y=-100.000000, z=0.000000)
+2025-07-29 18:34:13,427 - INFO - Processing 783 objects of type Buildings
+2025-07-29 18:34:13,524 - INFO - Processing 1050 objects of type Walls
+2025-07-29 18:34:13,634 - INFO - Processing 794 objects of type Fences
+2025-07-29 18:34:13,734 - INFO - Processing 1063 objects of type Poles
+2025-07-29 18:34:13,827 - INFO - Processing 11 objects of type TrafficSigns
+2025-07-29 18:34:13,928 - INFO - Processing 864 objects of type Vegetation
+2025-07-29 18:34:14,027 - INFO - Processing 176 objects of type Static
+2025-07-29 18:34:14,042 - INFO - Obstacle grid generated: 19778 obstacle cells (49.4%) from 4741 objects
+2025-07-29 18:34:14,043 - INFO - Starting RRT pathfinding from (100, 100) to (199, 199)
+2025-07-29 18:34:14,043 - ERROR - Start position is in obstacle!
+2025-07-29 18:34:14,043 - ERROR - Path planning failed!
+2025-07-29 18:34:14,043 - INFO - Cleaning up...
+2025-07-29 18:34:16,077 - INFO - Vehicle destroyed
+2025-07-29 18:34:16,077 - INFO - CARLA Pathfinding System finished
+2025-07-29 18:34:24,107 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 18:34:24,107 - INFO - Connecting to CARLA server...
+2025-07-29 18:34:24,108 - INFO - Connected to CARLA server version: 0.9.15
+2025-07-29 18:34:24,108 - INFO - Loading CARLA world...
+2025-07-29 18:34:24,184 - INFO - Available maps: ['/Game/Carla/Maps/Town04_Opt', '/Game/Carla/Maps/Town03_Opt', '/Game/Carla/Maps/Town05', '/Game/Carla/Maps/Town02_Opt', '/Game/Carla/Maps/Town10HD', '/Game/Carla/Maps/Town01', '/Game/Carla/Maps/Town05_Opt', '/Game/Carla/Maps/Town03', '/Game/Carla/Maps/Town10HD_Opt', '/Game/Carla/Maps/Town01_Opt', '/Game/Carla/Maps/Town02', '/Game/Carla/Maps/Town04']
+2025-07-29 18:34:28,366 - INFO - World 'Town03' loaded successfully
+2025-07-29 18:34:29,529 - INFO - Weather conditions optimized
+2025-07-29 18:34:29,529 - INFO - Spawning vehicle...
+2025-07-29 18:34:30,195 - INFO - Vehicle spawned at: Location(x=-3.098443, y=-183.513992, z=0.275307)
+2025-07-29 18:34:30,195 - INFO - Start location set to: Location(x=0.000000, y=0.000000, z=0.000000)
+2025-07-29 18:34:30,195 - INFO - Goal location set to: Location(x=180.000000, y=120.000000, z=0.500000)
+2025-07-29 18:34:30,195 - INFO - Starting path planning...
+2025-07-29 18:34:30,195 - INFO - Starting obstacle grid generation...
+2025-07-29 18:34:30,195 - INFO - Grid origin set to: Location(x=-100.000000, y=-100.000000, z=0.000000)
+2025-07-29 18:34:30,317 - INFO - Processing 783 objects of type Buildings
+2025-07-29 18:34:30,428 - INFO - Processing 1050 objects of type Walls
+2025-07-29 18:34:30,555 - INFO - Processing 794 objects of type Fences
+2025-07-29 18:34:30,667 - INFO - Processing 1063 objects of type Poles
+2025-07-29 18:34:30,771 - INFO - Processing 11 objects of type TrafficSigns
+2025-07-29 18:34:30,886 - INFO - Processing 864 objects of type Vegetation
+2025-07-29 18:34:31,003 - INFO - Processing 176 objects of type Static
+2025-07-29 18:34:31,021 - INFO - Obstacle grid generated: 19778 obstacle cells (49.4%) from 4741 objects
+2025-07-29 18:34:31,021 - INFO - Starting RRT pathfinding from (100, 100) to (199, 199)
+2025-07-29 18:34:31,021 - ERROR - Start position is in obstacle!
+2025-07-29 18:34:31,021 - ERROR - Path planning failed!
+2025-07-29 18:34:31,021 - INFO - Cleaning up...
+2025-07-29 18:34:33,053 - INFO - Vehicle destroyed
+2025-07-29 18:34:33,053 - INFO - CARLA Pathfinding System finished
+2025-07-29 18:34:53,015 - ERROR - Critical error: index 206 is out of bounds for axis 0 with size 200
+Traceback (most recent call last):
+  File "/home/ramiz/shell_ws/src/sem-apc-carla-interface/scripts/RRT_planing.py", line 459, in run
+    path = self.rrt_path_plan(start, goal, grid)
+  File "/home/ramiz/shell_ws/src/sem-apc-carla-interface/scripts/RRT_planing.py", line 194, in rrt_path_plan
+    if grid[start[0]][start[1]] == 1 or grid[goal[0]][goal[1]] == 1:
+IndexError: index 206 is out of bounds for axis 0 with size 200
+2025-07-29 18:35:48,042 - ERROR - Critical error: index 206 is out of bounds for axis 0 with size 200
+Traceback (most recent call last):
+  File "/home/ramiz/shell_ws/src/sem-apc-carla-interface/scripts/RRT_planing.py", line 459, in run
+    path = self.rrt_path_plan(start, goal, grid)
+  File "/home/ramiz/shell_ws/src/sem-apc-carla-interface/scripts/RRT_planing.py", line 194, in rrt_path_plan
+    if grid[start[0]][start[1]] == 1 or grid[goal[0]][goal[1]] == 1:
+IndexError: index 206 is out of bounds for axis 0 with size 200
+2025-07-29 18:36:03,657 - ERROR - No valid goal position!
+2025-07-29 18:36:07,573 - ERROR - No valid goal position!
+2025-07-29 18:40:07,046 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 18:40:07,046 - INFO - Connecting to CARLA server...
+2025-07-29 18:40:07,047 - INFO - Connected to CARLA server version: 0.9.15
+2025-07-29 18:40:07,048 - INFO - Loading CARLA world...
+2025-07-29 18:40:07,124 - INFO - Available maps: ['/Game/Carla/Maps/Town04_Opt', '/Game/Carla/Maps/Town03_Opt', '/Game/Carla/Maps/Town05', '/Game/Carla/Maps/Town02_Opt', '/Game/Carla/Maps/Town10HD', '/Game/Carla/Maps/Town01', '/Game/Carla/Maps/Town05_Opt', '/Game/Carla/Maps/Town03', '/Game/Carla/Maps/Town10HD_Opt', '/Game/Carla/Maps/Town01_Opt', '/Game/Carla/Maps/Town02', '/Game/Carla/Maps/Town04']
+2025-07-29 18:40:11,574 - INFO - World 'Town03' loaded successfully
+2025-07-29 18:40:12,175 - INFO - Weather conditions optimized
+2025-07-29 18:40:12,176 - INFO - Spawning vehicle...
+2025-07-29 18:40:12,206 - INFO - Vehicle color set to: 16,44,21
+2025-07-29 18:40:12,477 - INFO - Found 265 available spawn points
+2025-07-29 18:40:12,505 - INFO - ✓ Vehicle spawned successfully at attempt 1
+2025-07-29 18:40:12,506 - INFO - Vehicle location: Location(x=-40.411064, y=0.685463, z=0.275307)
+2025-07-29 18:40:12,506 - INFO - Waiting for vehicle to settle...
+2025-07-29 18:40:15,508 - INFO - Setting up spectator view...
+2025-07-29 18:40:15,525 - INFO - Spectator positioned for optimal view
+2025-07-29 18:40:15,526 - INFO - 🗺️ Generating obstacle map...
+2025-07-29 18:40:15,526 - INFO - Starting obstacle grid generation...
+2025-07-29 18:40:15,526 - INFO - Grid origin set to: Location(x=-140.410706, y=-99.314529, z=-0.007246)
+2025-07-29 18:40:15,549 - INFO - Processing 783 objects of type Buildings
+2025-07-29 18:40:15,680 - INFO - Processing 1050 objects of type Walls
+2025-07-29 18:40:15,769 - INFO - Processing 794 objects of type Fences
+2025-07-29 18:40:15,850 - INFO - Processing 1063 objects of type Poles
+2025-07-29 18:40:15,952 - INFO - Processing 11 objects of type TrafficSigns
+2025-07-29 18:40:15,969 - INFO - Processing 864 objects of type Vegetation
+2025-07-29 18:40:16,085 - INFO - Processing 176 objects of type Static
+2025-07-29 18:40:16,104 - INFO - Obstacle grid generated: 20266 obstacle cells (50.7%) from 4741 objects
+2025-07-29 18:40:16,104 - INFO - Obstacle grid generated in 0.58 seconds
+2025-07-29 18:40:16,104 - INFO - Vehicle start position: world(-40.4, 0.7) -> grid(99, 100)
+2025-07-29 18:40:16,104 - INFO - ✓ Goal set to grid(100, 100)
+2025-07-29 18:40:16,105 - INFO - Goal position: grid(100, 100) -> world(-40.4, 0.7)
+2025-07-29 18:40:16,105 - INFO - Straight-line distance to goal: 1.0 meters
+2025-07-29 18:40:16,105 - INFO - 🧭 Starting path planning with RRT algorithm...
+2025-07-29 18:40:16,105 - INFO - Starting RRT pathfinding from (99, 100) to (100, 100)
+2025-07-29 18:40:16,105 - INFO - RRT parameters: max_iter=8000, step_size=3.0, goal_bias=0.2
+2025-07-29 18:40:16,105 - INFO - Path found in 1 iterations with 2 nodes
+2025-07-29 18:40:16,105 - INFO - Raw path reconstructed with 3 waypoints
+2025-07-29 18:40:16,105 - INFO - Smoothing path with 3 waypoints...
+2025-07-29 18:40:16,105 - INFO - Path smoothed from 3 to 2 waypoints (33.3% reduction)
+2025-07-29 18:40:16,105 - INFO - Path planning completed in 0.00 seconds
+2025-07-29 18:40:16,105 - INFO - ✓ Path found successfully!
+2025-07-29 18:40:16,105 - INFO -   - Waypoints: 2
+2025-07-29 18:40:16,105 - INFO -   - Path length: 1.0 meters
+2025-07-29 18:40:16,105 - INFO -   - Efficiency: 100.0% (vs straight line)
+2025-07-29 18:40:16,105 - INFO - 🎨 Creating visualization...
+2025-07-29 18:40:16,105 - INFO - Creating debug visualization...
+2025-07-29 18:40:16,111 - INFO - Visualizing 800 obstacle points
+2025-07-29 18:40:16,116 - INFO - Visualizing path with 2 waypoints
+2025-07-29 18:40:16,116 - INFO - Debug visualization completed
+2025-07-29 18:40:16,116 - INFO - 🚗 Starting autonomous navigation...
+2025-07-29 18:40:16,117 - INFO - Starting path execution with 2 waypoints
+2025-07-29 18:40:16,117 - INFO - Moving to waypoint 1/2: grid(99, 100) -> world(-41.4, 0.7)
+2025-07-29 18:40:16,121 - INFO - ✓ Reached waypoint 1 (distance: 1.00m)
+2025-07-29 18:40:16,121 - INFO - Moving to waypoint 2/2: grid(100, 100) -> world(-40.4, 0.7)
+2025-07-29 18:40:16,121 - INFO - ✓ Reached waypoint 2 (distance: 0.00m)
+2025-07-29 18:40:16,121 - INFO - Path execution completed, stopping vehicle
+2025-07-29 18:40:16,121 - INFO - 🎉 Navigation completed!
+2025-07-29 18:40:16,121 - INFO - 📊 Performance Summary:
+2025-07-29 18:40:16,121 - INFO -   - Total execution time: 0.0 seconds
+2025-07-29 18:40:16,122 - INFO -   - Average speed: 217.9 m/s
+2025-07-29 18:40:16,122 - INFO -   - Planning efficiency: 100.0%
+2025-07-29 18:40:16,122 - INFO -   - Final distance to goal: 0.0 meters
+2025-07-29 18:40:16,122 - INFO - ✅ Goal reached successfully!
+2025-07-29 18:40:16,122 - INFO - Keeping visualization active for 30 seconds...
+2025-07-29 18:40:24,377 - INFO - 🛑 Navigation interrupted by user
+2025-07-29 18:40:24,377 - INFO - 🧹 Starting cleanup process...
+2025-07-29 18:40:24,378 - INFO - Stopping and destroying vehicle...
+2025-07-29 18:40:24,889 - INFO - ✓ Vehicle destroyed
+2025-07-29 18:40:24,914 - INFO - ✓ World settings reset
+2025-07-29 18:40:24,914 - INFO - ✅ Cleanup completed successfully
+2025-07-29 18:40:25,854 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 18:40:25,854 - INFO - Connecting to CARLA server...
+2025-07-29 18:40:25,855 - INFO - Connected to CARLA server version: 0.9.15
+2025-07-29 18:40:25,855 - INFO - Loading CARLA world...
+2025-07-29 18:40:25,941 - INFO - Available maps: ['/Game/Carla/Maps/Town04_Opt', '/Game/Carla/Maps/Town03_Opt', '/Game/Carla/Maps/Town05', '/Game/Carla/Maps/Town02_Opt', '/Game/Carla/Maps/Town10HD', '/Game/Carla/Maps/Town01', '/Game/Carla/Maps/Town05_Opt', '/Game/Carla/Maps/Town03', '/Game/Carla/Maps/Town10HD_Opt', '/Game/Carla/Maps/Town01_Opt', '/Game/Carla/Maps/Town02', '/Game/Carla/Maps/Town04']
+2025-07-29 18:40:29,553 - INFO - World 'Town03' loaded successfully
+2025-07-29 18:40:30,096 - INFO - Weather conditions optimized
+2025-07-29 18:40:30,097 - INFO - Spawning vehicle...
+2025-07-29 18:40:30,124 - INFO - Vehicle color set to: 0,39,105
+2025-07-29 18:40:30,370 - INFO - Found 265 available spawn points
+2025-07-29 18:40:30,387 - INFO - ✓ Vehicle spawned successfully at attempt 1
+2025-07-29 18:40:30,388 - INFO - Vehicle location: Location(x=149.391281, y=-67.858925, z=8.305599)
+2025-07-29 18:40:30,388 - INFO - Waiting for vehicle to settle...
+2025-07-29 18:40:33,390 - INFO - Setting up spectator view...
+2025-07-29 18:40:33,399 - INFO - Spectator positioned for optimal view
+2025-07-29 18:40:33,400 - INFO - 🗺️ Generating obstacle map...
+2025-07-29 18:40:33,400 - INFO - Starting obstacle grid generation...
+2025-07-29 18:40:33,400 - INFO - Grid origin set to: Location(x=49.390335, y=-167.866455, z=7.830543)
+2025-07-29 18:40:33,423 - INFO - Processing 783 objects of type Buildings
+2025-07-29 18:40:33,519 - INFO - Processing 1050 objects of type Walls
+2025-07-29 18:40:33,641 - INFO - Processing 794 objects of type Fences
+2025-07-29 18:40:33,723 - INFO - Processing 1063 objects of type Poles
+2025-07-29 18:40:33,827 - INFO - Processing 11 objects of type TrafficSigns
+2025-07-29 18:40:33,846 - INFO - Processing 864 objects of type Vegetation
+2025-07-29 18:40:33,942 - INFO - Processing 176 objects of type Static
+2025-07-29 18:40:33,957 - INFO - Obstacle grid generated: 20312 obstacle cells (50.8%) from 4741 objects
+2025-07-29 18:40:33,957 - INFO - Obstacle grid generated in 0.56 seconds
+2025-07-29 18:40:33,957 - INFO - Vehicle start position: world(149.4, -67.9) -> grid(100, 99)
+2025-07-29 18:40:33,958 - INFO - ✓ Goal set to grid(150, 150)
+2025-07-29 18:40:33,958 - INFO - Goal position: grid(150, 150) -> world(199.4, -17.9)
+2025-07-29 18:40:33,958 - INFO - Straight-line distance to goal: 71.4 meters
+2025-07-29 18:40:33,958 - INFO - 🧭 Starting path planning with RRT algorithm...
+2025-07-29 18:40:33,958 - INFO - Starting RRT pathfinding from (100, 99) to (150, 150)
+2025-07-29 18:40:33,958 - INFO - RRT parameters: max_iter=8000, step_size=3.0, goal_bias=0.2
+2025-07-29 18:40:34,092 - INFO - RRT progress: iteration 1000, nodes: 318
+2025-07-29 18:40:34,443 - INFO - RRT progress: iteration 2000, nodes: 627
+2025-07-29 18:40:34,958 - INFO - RRT progress: iteration 3000, nodes: 959
+2025-07-29 18:40:35,634 - INFO - RRT progress: iteration 4000, nodes: 1256
+2025-07-29 18:40:36,535 - INFO - RRT progress: iteration 5000, nodes: 1501
+2025-07-29 18:40:37,549 - INFO - RRT progress: iteration 6000, nodes: 1751
+2025-07-29 18:40:38,787 - INFO - RRT progress: iteration 7000, nodes: 1970
+2025-07-29 18:40:40,169 - ERROR - RRT failed to find path after 8000 iterations
+2025-07-29 18:40:40,169 - INFO - Path planning completed in 6.21 seconds
+2025-07-29 18:40:40,169 - ERROR - ❌ Path planning failed! No path found to goal.
+2025-07-29 18:40:40,169 - INFO - 🧹 Starting cleanup process...
+2025-07-29 18:40:40,169 - INFO - Stopping and destroying vehicle...
+2025-07-29 18:40:40,673 - INFO - ✓ Vehicle destroyed
+2025-07-29 18:40:40,701 - INFO - ✓ World settings reset
+2025-07-29 18:40:40,701 - INFO - ✅ Cleanup completed successfully
+2025-07-29 18:40:42,520 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 18:40:42,520 - INFO - Connecting to CARLA server...
+2025-07-29 18:40:42,521 - INFO - Connected to CARLA server version: 0.9.15
+2025-07-29 18:40:42,521 - INFO - Loading CARLA world...
+2025-07-29 18:40:42,607 - INFO - Available maps: ['/Game/Carla/Maps/Town04_Opt', '/Game/Carla/Maps/Town03_Opt', '/Game/Carla/Maps/Town05', '/Game/Carla/Maps/Town02_Opt', '/Game/Carla/Maps/Town10HD', '/Game/Carla/Maps/Town01', '/Game/Carla/Maps/Town05_Opt', '/Game/Carla/Maps/Town03', '/Game/Carla/Maps/Town10HD_Opt', '/Game/Carla/Maps/Town01_Opt', '/Game/Carla/Maps/Town02', '/Game/Carla/Maps/Town04']
+2025-07-29 18:40:46,174 - INFO - World 'Town03' loaded successfully
+2025-07-29 18:40:46,763 - INFO - Weather conditions optimized
+2025-07-29 18:40:46,763 - INFO - Spawning vehicle...
+2025-07-29 18:40:46,794 - INFO - Vehicle color set to: 0,39,105
+2025-07-29 18:40:47,024 - INFO - Found 265 available spawn points
+2025-07-29 18:40:47,035 - INFO - ✓ Vehicle spawned successfully at attempt 1
+2025-07-29 18:40:47,036 - INFO - Vehicle location: Location(x=-3.098443, y=-183.513992, z=0.275307)
+2025-07-29 18:40:47,036 - INFO - Waiting for vehicle to settle...
+2025-07-29 18:40:50,038 - INFO - Setting up spectator view...
+2025-07-29 18:40:50,048 - INFO - Spectator positioned for optimal view
+2025-07-29 18:40:50,048 - INFO - 🗺️ Generating obstacle map...
+2025-07-29 18:40:50,048 - INFO - Starting obstacle grid generation...
+2025-07-29 18:40:50,048 - INFO - Grid origin set to: Location(x=-103.098450, y=-283.513611, z=-0.007362)
+2025-07-29 18:40:50,076 - INFO - Processing 783 objects of type Buildings
+2025-07-29 18:40:50,212 - INFO - Processing 1050 objects of type Walls
+2025-07-29 18:40:50,313 - INFO - Processing 794 objects of type Fences
+2025-07-29 18:40:50,394 - INFO - Processing 1063 objects of type Poles
+2025-07-29 18:40:50,504 - INFO - Processing 11 objects of type TrafficSigns
+2025-07-29 18:40:50,521 - INFO - Processing 864 objects of type Vegetation
+2025-07-29 18:40:50,597 - INFO - Processing 176 objects of type Static
+2025-07-29 18:40:50,613 - INFO - Obstacle grid generated: 15513 obstacle cells (38.8%) from 4741 objects
+2025-07-29 18:40:50,613 - INFO - Obstacle grid generated in 0.56 seconds
+2025-07-29 18:40:50,613 - INFO - Vehicle start position: world(-3.1, -183.5) -> grid(99, 99)
+2025-07-29 18:40:50,613 - INFO - ✓ Goal set to grid(150, 150)
+2025-07-29 18:40:50,613 - INFO - Goal position: grid(150, 150) -> world(46.9, -133.5)
+2025-07-29 18:40:50,613 - INFO - Straight-line distance to goal: 72.1 meters
+2025-07-29 18:40:50,613 - INFO - 🧭 Starting path planning with RRT algorithm...
+2025-07-29 18:40:50,613 - INFO - Starting RRT pathfinding from (99, 99) to (150, 150)
+2025-07-29 18:40:50,613 - INFO - RRT parameters: max_iter=8000, step_size=3.0, goal_bias=0.2
+2025-07-29 18:40:50,644 - INFO - Path found in 401 iterations with 137 nodes
+2025-07-29 18:40:50,644 - INFO - Raw path reconstructed with 35 waypoints
+2025-07-29 18:40:50,644 - INFO - Smoothing path with 35 waypoints...
+2025-07-29 18:40:50,645 - INFO - Path smoothed from 35 to 3 waypoints (91.4% reduction)
+2025-07-29 18:40:50,645 - INFO - Path planning completed in 0.03 seconds
+2025-07-29 18:40:50,645 - INFO - ✓ Path found successfully!
+2025-07-29 18:40:50,646 - INFO -   - Waypoints: 3
+2025-07-29 18:40:50,646 - INFO -   - Path length: 84.6 meters
+2025-07-29 18:40:50,646 - INFO -   - Efficiency: 85.2% (vs straight line)
+2025-07-29 18:40:50,646 - INFO - 🎨 Creating visualization...
+2025-07-29 18:40:50,646 - INFO - Creating debug visualization...
+2025-07-29 18:40:50,651 - INFO - Visualizing 800 obstacle points
+2025-07-29 18:40:50,655 - INFO - Visualizing path with 3 waypoints
+2025-07-29 18:40:50,655 - INFO - Debug visualization completed
+2025-07-29 18:40:50,656 - INFO - 🚗 Starting autonomous navigation...
+2025-07-29 18:40:50,656 - INFO - Starting path execution with 3 waypoints
+2025-07-29 18:40:50,656 - INFO - Moving to waypoint 1/3: grid(99, 99) -> world(-4.1, -184.5)
+2025-07-29 18:40:50,656 - INFO - ✓ Reached waypoint 1 (distance: 1.41m)
+2025-07-29 18:40:50,656 - INFO - Moving to waypoint 2/3: grid(113, 144) -> world(9.9, -139.5)
+2025-07-29 18:41:06,810 - INFO - ✓ Reached waypoint 2 (distance: 1.80m)
+2025-07-29 18:41:06,810 - INFO - Moving to waypoint 3/3: grid(150, 150) -> world(46.9, -133.5)
+2025-07-29 18:41:27,383 - WARNING - Vehicle may be stuck at waypoint 3, minimum distance: 2.85m
+2025-07-29 18:41:27,383 - INFO - Close enough to waypoint, continuing...
+2025-07-29 18:41:27,383 - INFO - Path execution completed, stopping vehicle
+2025-07-29 18:41:27,383 - INFO - 🎉 Navigation completed!
+2025-07-29 18:41:27,383 - INFO - 📊 Performance Summary:
+2025-07-29 18:41:27,383 - INFO -   - Total execution time: 36.7 seconds
+2025-07-29 18:41:27,383 - INFO -   - Average speed: 2.3 m/s
+2025-07-29 18:41:27,383 - INFO -   - Planning efficiency: 85.2%
+2025-07-29 18:41:27,383 - INFO -   - Final distance to goal: 3.7 meters
+2025-07-29 18:41:27,383 - WARNING - ⚠️ Goal not fully reached, but navigation completed
+2025-07-29 18:41:27,383 - INFO - Keeping visualization active for 30 seconds...
+2025-07-29 18:41:57,413 - INFO - 🧹 Starting cleanup process...
+2025-07-29 18:41:57,413 - INFO - Stopping and destroying vehicle...
+2025-07-29 18:41:57,921 - INFO - ✓ Vehicle destroyed
+2025-07-29 18:41:57,956 - INFO - ✓ World settings reset
+2025-07-29 18:41:57,956 - INFO - ✅ Cleanup completed successfully
+2025-07-29 18:54:31,674 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 18:54:34,994 - INFO - Spawning vehicle at: (10.0, 20.0)
+2025-07-29 18:54:37,588 - ERROR - Error: Python argument types in
+    Actor.set_transform(Actor, Boost.Python.class)
+did not match C++ signature:
+    set_transform(carla::client::Actor {lvalue}, carla::geom::Transform transform)
+Traceback (most recent call last):
+  File "/home/ramiz/shell_ws/src/sem-apc-carla-interface/scripts/RRT_planing.py", line 444, in run
+    spectator.set_transform(carla.Transform)(
+Boost.Python.ArgumentError: Python argument types in
+    Actor.set_transform(Actor, Boost.Python.class)
+did not match C++ signature:
+    set_transform(carla::client::Actor {lvalue}, carla::geom::Transform transform)
+2025-07-29 18:54:37,588 - INFO - Cleaning up resources...
+2025-07-29 18:54:37,612 - INFO - Vehicle destroyed
+2025-07-29 18:54:54,134 - INFO - 🚀 Starting CARLA Pathfinding System
+2025-07-29 18:54:57,561 - INFO - Spawning vehicle at: (10.0, 20.0)
+2025-07-29 18:55:00,136 - ERROR - Error: Python argument types in
+    Actor.set_transform(Actor, Boost.Python.class)
+did not match C++ signature:
+    set_transform(carla::client::Actor {lvalue}, carla::geom::Transform transform)
+Traceback (most recent call last):
+  File "/home/ramiz/shell_ws/src/sem-apc-carla-interface/scripts/RRT_planing.py", line 444, in run
+    spectator.set_transform(carla.Transform)(
+Boost.Python.ArgumentError: Python argument types in
+    Actor.set_transform(Actor, Boost.Python.class)
+did not match C++ signature:
+    set_transform(carla::client::Actor {lvalue}, carla::geom::Transform transform)
+2025-07-29 18:55:00,137 - INFO - Cleaning up resources...
+2025-07-29 18:55:00,164 - INFO - Vehicle destroyed

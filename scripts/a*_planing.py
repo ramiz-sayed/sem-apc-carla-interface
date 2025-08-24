@@ -343,7 +343,7 @@ def main():
         # Connect to CARLA
         client = carla.Client('localhost', 2000)
         client.set_timeout(10.0)
-        client.load_world('Town03')  # Change to your desired map
+        client.load_world('Town01')  # Change to your desired map
         world = client.get_world()
         
         

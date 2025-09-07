@@ -4,12 +4,12 @@ Enhanced CARLA Waypoint Navigation with TSP Optimization
 ========================================================
 Task: Navigate optimally through waypoints following CARLA roads in Town01
 Features: 
-- TSP-based route optimization using actual road distances
+- TSP-based route optimization using actual road distances and directions
 - Smooth steering with PID control
-- Persistent visualization of routes and waypoints
+- Persistent visualization of routes and waypoints (small dots with labels)
 - Collision avoidance and overturn prevention
 - Dynamic speed adjustment for curves
-- Camera-distance-based waypoint scaling for better visualization
+- Waypoint proximity improvements
 """
 import carla
 import sys
@@ -50,7 +50,18 @@ import heapq
 # Each waypoint represents a specific location in Town01 that the vehicle needs to reach
 # Changing these values will alter the navigation path and optimization results
 WAYPOINTS = [
- 
+    [334.949799, 161.106171, 0.001736],  # Waypoint 0: Near intersection
+    [339.100037, 258.568939, 0.001679],  # Waypoint 1: Straight road section
+    [396.295319, 183.195740, 0.001678],  # Waypoint 2: Curved road section
+    [267.657074, 1.983160, 0.001678],    # Waypoint 3: T-junction
+    [153.868896, 26.115866, 0.001678],   # Waypoint 4: Residential area
+    [290.515564, 56.175072, 0.001677],   # Waypoint 5: Near roundabout
+    [92.325722, 86.063644, 0.001677],    # Waypoint 6: Narrow street
+    [88.384346, 287.468567, 0.001728],   # Waypoint 7: Highway entrance
+    [177.594101, 326.386902, 0.001677],  # Waypoint 8: Highway section
+    [-1.646942, 197.501282, 0.001555],   # Waypoint 9: Downtown area
+    [59.701321, 1.970804, 0.001467],     # Waypoint 10: Industrial zone
+    [122.100121, 55.142044, 0.001596],   # Waypoint 11: Suburban area
     [161.030975, 129.313187, 0.001679],  # Waypoint 12: School zone
     [184.758713, 199.424271, 0.001680],  # Waypoint 13: Commercial district
 ]
@@ -63,27 +74,13 @@ START_POSITION = [280.363739, 129.306351, 0.101746]  # Near center of Town01
 # Visualization constants
 # =======================
 
-# WAYPOINT_BASE_SIZE: Base size of waypoint markers in meters
-# This determines the default size of waypoint spheres when the camera is at a moderate distance
-# Increasing this value will make waypoints more visible from far away
-# Decreasing this value will make waypoints smaller and less obtrusive
-WAYPOINT_BASE_SIZE = 1.0
+# WAYPOINT_DOT_SIZE: Size of waypoint markers in meters
+# Small dot to mark waypoint location without obscuring the scene
+WAYPOINT_DOT_SIZE = 0.1
 
-# WAYPOINT_DISTANCE_FACTOR: Controls how quickly waypoint size changes with camera distance
-# Higher values make waypoints shrink faster as the camera moves away
-# Lower values make waypoints maintain their size better over distance
-# Recommended range: 0.01 to 0.1
-WAYPOINT_DISTANCE_FACTOR = 0.05
-
-# WAYPOINT_MIN_SIZE: Minimum size of waypoint markers in meters
-# Prevents waypoints from becoming too small to see when the camera is far away
-# Should be at least 0.1 to remain visible
-WAYPOINT_MIN_SIZE = 0.2
-
-# WAYPOINT_MAX_SIZE: Maximum size of waypoint markers in meters
-# Prevents waypoints from becoming too large when the camera is very close
-# Should be less than 5.0 to avoid obscuring the scene
-WAYPOINT_MAX_SIZE = 3.0
+# WAYPOINT_LABEL_HEIGHT: Height above ground for waypoint labels in meters
+# Ensures labels are visible above the vehicle and other objects
+WAYPOINT_LABEL_HEIGHT = 2.0
 
 # Visualization update interval in seconds
 # Controls how frequently waypoint sizes are recalculated based on camera position
@@ -131,10 +128,9 @@ MAX_ROLL_ANGLE = 15.0
 
 # WAYPOINT_REACH_THRESHOLD: Distance in meters to consider a waypoint reached
 # When the vehicle is within this distance of a waypoint, it moves to the next one
-# Higher values make navigation less precise but more forgiving
-# Lower values make navigation more precise but may cause the vehicle to struggle
-# Recommended range: 3.0 to 6.0 meters
-WAYPOINT_REACH_THRESHOLD = 4.0
+# Reduced value makes the vehicle get closer to waypoints before considering them reached
+# Recommended range: 1.0 to 3.0 meters for precise navigation
+WAYPOINT_REACH_THRESHOLD = 2.0  # Reduced from 4.0 to get closer to waypoints
 
 # LOOK_AHEAD_WAYPOINTS: Number of waypoints to look ahead for steering
 # Higher values provide smoother turns but may cause cutting corners
@@ -247,7 +243,7 @@ class PIDController:
         self.error_buffer.clear()
 
 class RouteOptimizer:
-    """Optimizes waypoint order using TSP with road distances"""
+    """Optimizes waypoint order using TSP with road distances and directions"""
     def __init__(self, world_map):
         """
         Initialize route optimizer with map data
@@ -260,14 +256,14 @@ class RouteOptimizer:
         
     def get_road_distance(self, start_loc, end_loc):
         """
-        Calculate actual road distance between two locations
+        Calculate actual road distance between two locations considering street direction
         
         Args:
             start_loc: Starting location (carla.Location)
             end_loc: Ending location (carla.Location)
             
         Returns:
-            Distance in meters along roads
+            Distance in meters along roads following traffic direction
         """
         # Create cache key from location coordinates
         cache_key = (
@@ -287,7 +283,7 @@ class RouteOptimizer:
             # Fallback to euclidean distance if waypoints not found
             distance = start_loc.distance(end_loc)
         else:
-            # Use A* pathfinding to calculate road distance
+            # Use A* pathfinding to calculate road distance respecting direction
             distance = self._astar_distance(start_wp, end_wp)
             if distance is None:
                 # If no path found, use euclidean distance with penalty
@@ -299,7 +295,7 @@ class RouteOptimizer:
     
     def _astar_distance(self, start_wp, end_wp, max_iterations=ASTAR_MAX_ITERATIONS):
         """
-        A* pathfinding algorithm for calculating road distance
+        A* pathfinding algorithm for calculating road distance respecting street direction
         
         Args:
             start_wp: Starting waypoint
@@ -329,8 +325,30 @@ class RouteOptimizer:
                 continue
             closed_set.add(wp_hash)
             
-            # Get next waypoints along the road
+            # Get next waypoints along the road in the direction of traffic
             next_wps = current.next(SAMPLING_RESOLUTION)
+            
+            # Also consider lane changes if they're in the same direction
+            if current.lane_change & carla.LaneChange.Left:
+                left_wp = current.get_left_lane()
+                if left_wp and left_wp.lane_type == carla.LaneType.Driving:
+                    # Check if the left lane is going in a compatible direction
+                    left_dir = left_wp.transform.get_forward_vector()
+                    current_dir = current.transform.get_forward_vector()
+                    dot_product = left_dir.x * current_dir.x + left_dir.y * current_dir.y
+                    if dot_product > 0.5:  # Lanes are going in similar directions
+                        next_wps.append(left_wp)
+            
+            if current.lane_change & carla.LaneChange.Right:
+                right_wp = current.get_right_lane()
+                if right_wp and right_wp.lane_type == carla.LaneType.Driving:
+                    # Check if the right lane is going in a compatible direction
+                    right_dir = right_wp.transform.get_forward_vector()
+                    current_dir = current.transform.get_forward_vector()
+                    dot_product = right_dir.x * current_dir.x + right_dir.y * current_dir.y
+                    if dot_product > 0.5:  # Lanes are going in similar directions
+                        next_wps.append(right_wp)
+            
             for next_wp in next_wps:
                 if next_wp:
                     new_dist = dist + SAMPLING_RESOLUTION
@@ -455,7 +473,7 @@ class EnhancedCarlaNavigator:
         self.optimized_route = []
         self.all_route_waypoints = []
         self.visualization_objects = []
-        self.waypoint_locations = []  # For dynamic waypoint visualization
+        self.waypoint_locations = []  # For waypoint visualization
         self.visualization_update_counter = 0
         
         print("✅ Enhanced CARLA Navigator initialized")
@@ -527,12 +545,17 @@ class EnhancedCarlaNavigator:
         print(f"💰 Distance saved: {original_distance - optimized_distance:.1f}m "
               f"({100*(original_distance - optimized_distance)/original_distance:.1f}%)")
         
+        # Print the optimized route with original indices
+        print(f"📋 Optimized route order:")
+        for i, idx in enumerate(optimized_route):
+            print(f"   Stop {i+1}: Waypoint {idx} {WAYPOINTS[idx]}")
+        
         self.optimized_route = optimized_route
         return optimized_route
     
     def get_waypoint_path(self, start_location, target_location, sampling_resolution=SAMPLING_RESOLUTION):
         """
-        Create path using CARLA map waypoints with A* pathfinding
+        Create path using CARLA map waypoints with A* pathfinding respecting direction
         
         Args:
             start_location: Starting position (carla.Location)
@@ -579,19 +602,29 @@ class EnhancedCarlaNavigator:
                 continue
             closed_set.add(wp_hash)
             
-            # Get next waypoints
+            # Get next waypoints along the road in the direction of traffic
             next_waypoints = current.next(sampling_resolution)
             
-            # Also check lane changes
+            # Also consider lane changes if they're in the same direction
             if current.lane_change & carla.LaneChange.Left:
                 left_wp = current.get_left_lane()
                 if left_wp and left_wp.lane_type == carla.LaneType.Driving:
-                    next_waypoints.append(left_wp)
+                    # Check if the left lane is going in a compatible direction
+                    left_dir = left_wp.transform.get_forward_vector()
+                    current_dir = current.transform.get_forward_vector()
+                    dot_product = left_dir.x * current_dir.x + left_dir.y * current_dir.y
+                    if dot_product > 0.5:  # Lanes are going in similar directions
+                        next_waypoints.append(left_wp)
             
             if current.lane_change & carla.LaneChange.Right:
                 right_wp = current.get_right_lane()
                 if right_wp and right_wp.lane_type == carla.LaneType.Driving:
-                    next_waypoints.append(right_wp)
+                    # Check if the right lane is going in a compatible direction
+                    right_dir = right_wp.transform.get_forward_vector()
+                    current_dir = current.transform.get_forward_vector()
+                    dot_product = right_dir.x * current_dir.x + right_dir.y * current_dir.y
+                    if dot_product > 0.5:  # Lanes are going in similar directions
+                        next_waypoints.append(right_wp)
             
             for next_wp in next_waypoints:
                 if next_wp:
@@ -603,77 +636,50 @@ class EnhancedCarlaNavigator:
         
         return best_path if best_path else []
     
-    def update_waypoint_visualization(self):
+    def visualize_waypoints(self):
         """
-        Update waypoint visualization with sizes based on camera distance
-        This makes waypoints appear larger when closer to camera and smaller when farther away
+        Visualize waypoints as small dots with labels showing both original and optimized indices
         """
-        # Get current spectator (camera) position
-        spectator_transform = self.spectator.get_transform()
-        spectator_location = spectator_transform.location
-        
-        # Update each waypoint's visualization
-        for loc, orig_idx, opt_idx in self.waypoint_locations:
-            # Calculate distance from camera to waypoint
-            distance = spectator_location.distance(loc)
-            
-            # Calculate size based on distance (inverse relationship)
-            # Formula: size = base_size / (1 + distance * factor)
-            size = WAYPOINT_BASE_SIZE / (1 + distance * WAYPOINT_DISTANCE_FACTOR)
-            
-            # Clamp size to min/max bounds
-            size = max(WAYPOINT_MIN_SIZE, min(size, WAYPOINT_MAX_SIZE))
-            
-            # Draw the waypoint sphere with calculated size
-            self.world.debug.draw_sphere(
-                loc + carla.Location(z=2.0),  # Slightly above ground
-                radius=size,
-                color=carla.Color(r=255, g=0, b=0),  # Red
-                life_time=VISUALIZATION_UPDATE_INTERVAL * 2  # Slightly longer than update interval
-            )
-            
-            # Draw waypoint number
-            self.world.debug.draw_string(
-                loc + carla.Location(z=2.0 + size),  # Above the sphere
-                f"WP-{opt_idx+1}\n(#{orig_idx})",
-                draw_shadow=True,
-                color=carla.Color(r=255, g=255, b=255),  # White
-                life_time=VISUALIZATION_UPDATE_INTERVAL * 2
-            )
-    
-    def visualize_complete_route(self):
-        """Visualize all waypoints and complete route persistently"""
-        # Clear previous visualizations
+        # Clear previous waypoint visualizations
         for obj in self.visualization_objects:
             if hasattr(obj, 'destroy'):
                 obj.destroy()
         self.visualization_objects = []
         
-        # Store waypoint locations for dynamic visualization
+        # Store waypoint locations for visualization
         self.waypoint_locations = []
         for i, wp_idx in enumerate(self.optimized_route):
             waypoint = WAYPOINTS[wp_idx]
             location = carla.Location(x=waypoint[0], y=waypoint[1], z=waypoint[2])
             self.waypoint_locations.append((location, wp_idx, i))
         
-        # Draw initial waypoint visualization with default size
+        # Draw each waypoint as a small dot with label
         for loc, orig_idx, opt_idx in self.waypoint_locations:
-            self.world.debug.draw_sphere(
-                loc + carla.Location(z=2.0),
-                radius=WAYPOINT_BASE_SIZE,
-                color=carla.Color(r=255, g=0, b=0),
-                life_time=60.0  # Long enough to last until navigation starts
+            # Draw a small dot at waypoint location
+            self.world.debug.draw_point(
+                loc + carla.Location(z=0.2),  # Slightly above ground
+                size=WAYPOINT_DOT_SIZE,
+                color=carla.Color(r=255, g=0, b=0),  # Red dot
+                life_time=0.0  # Persistent
             )
             
+            # Draw waypoint label showing optimized order and original index
             self.world.debug.draw_string(
-                loc + carla.Location(z=4.0),
-                f"WP-{opt_idx+1}\n(#{orig_idx})",
+                loc + carla.Location(z=WAYPOINT_LABEL_HEIGHT),
+                f"WP-{opt_idx+1}\n(orig: {orig_idx})",
                 draw_shadow=True,
-                color=carla.Color(r=255, g=255, b=255),
-                life_time=60.0
+                color=carla.Color(r=255, g=255, b=255),  # White text
+                life_time=0.0  # Persistent
             )
         
-        # Draw complete route as persistent arrows
+        print(f"📍 Visualized {len(self.optimized_route)} waypoints as dots with labels")
+    
+    def visualize_complete_route(self):
+        """Visualize complete route as arrows between waypoints"""
+        # Draw waypoints first
+        self.visualize_waypoints()
+        
+        # Draw route as arrows between waypoints
         current_loc = carla.Location(x=START_POSITION[0], y=START_POSITION[1], z=START_POSITION[2])
         
         for i, wp_idx in enumerate(self.optimized_route):
@@ -706,11 +712,11 @@ class EnhancedCarlaNavigator:
             
             current_loc = target_loc
         
-        print(f"📍 Visualized {len(self.optimized_route)} waypoints and complete route")
+        print(f"📍 Visualized complete route with {len(self.optimized_route)} segments")
     
     def follow_waypoints_smooth(self, waypoint_list, target_index, target_speed=TARGET_SPEED):
         """
-        Follow waypoints with smooth PID steering control and dynamic visualization
+        Follow waypoints with smooth PID steering control
         
         Args:
             waypoint_list: List of waypoints to follow
@@ -722,9 +728,6 @@ class EnhancedCarlaNavigator:
         
         # Reset PID controller for fresh start
         self.steering_pid.reset()
-        
-        # Initialize visualization update counter
-        self.visualization_update_counter = 0
         
         while current_waypoint_index < len(waypoint_list):
             # Get current vehicle state
@@ -753,12 +756,11 @@ class EnhancedCarlaNavigator:
             current_wp_location = waypoint_list[current_waypoint_index].transform.location
             distance = vehicle_location.distance(current_wp_location)
             
-            # Check if waypoint reached
+            # Check if waypoint reached (with reduced threshold)
             if distance < WAYPOINT_REACH_THRESHOLD:
                 current_waypoint_index += 1
                 if current_waypoint_index < len(waypoint_list):
-                    #cofficent of losnes of point acceptance
-                    if current_waypoint_index % 1 == 0:
+                    if current_waypoint_index % 10 == 0:
                         print(f"✅ Progress: {current_waypoint_index}/{len(waypoint_list)} waypoints")
                 continue
             
@@ -815,12 +817,6 @@ class EnhancedCarlaNavigator:
                     life_time=5.0
                 )
             
-            # Update waypoint visualization periodically
-            self.visualization_update_counter += 1
-            if self.visualization_update_counter >= int(0.5 / 0.05):  # Every 0.5 seconds
-                self.update_waypoint_visualization()
-                self.visualization_update_counter = 0
-            
             # Wait for next tick
             self.world.tick()
             time.sleep(0.05)
@@ -856,10 +852,10 @@ class EnhancedCarlaNavigator:
         print(f"📋 Path planned: {len(waypoint_path)} waypoints")
         
         # Update current target visualization
-        self.world.debug.draw_sphere(
-            target_location + carla.Location(z=3.0),
-            radius=2.0,
-            color=carla.Color(r=0, g=255, b=0),
+        self.world.debug.draw_point(
+            target_location + carla.Location(z=0.5),
+            size=0.3,
+            color=carla.Color(r=0, g=255, b=0),  # Green for current target
             life_time=10.0
         )
         
@@ -870,7 +866,7 @@ class EnhancedCarlaNavigator:
         final_location = self.vehicle.get_transform().location
         final_distance = final_location.distance(target_location)
         
-        if final_distance < 10.0:
+        if final_distance < WAYPOINT_REACH_THRESHOLD * 1.5:  # Slightly larger threshold for final check
             print(f"✅ Reached waypoint {optimized_index+1} (distance: {final_distance:.1f}m)")
             return True
         else:
@@ -944,14 +940,10 @@ def main():
         # Start navigation
         navigator.navigate_all_waypoints()
         
-        # Keep visualization active with dynamic waypoint scaling
+        # Keep visualization active
         print("\n📍 Keeping visualization active. Press Ctrl+C to exit...")
-        try:
-            while True:
-                navigator.update_waypoint_visualization()
-                time.sleep(VISUALIZATION_UPDATE_INTERVAL)
-        except KeyboardInterrupt:
-            print("\n⏹️ Visualization stopped by user")
+        while True:
+            time.sleep(1.0)
         
     except KeyboardInterrupt:
         print("\n⏹️ Navigation stopped by user")
@@ -967,12 +959,12 @@ if __name__ == '__main__':
     print("🚀 Enhanced CARLA Navigation with TSP Optimization")
     print("=" * 60)
     print("📋 Features:")
-    print("  • TSP-based route optimization following actual roads")
+    print("  • TSP-based route optimization following actual roads and directions")
     print("  • Smooth PID steering control to prevent collisions")
-    print("  • Persistent route and waypoint visualization")
+    print("  • Persistent route visualization with small waypoint dots")
     print("  • Anti-rollover protection")
     print("  • Dynamic speed adjustment for curves")
-    print("  • Camera-distance-based waypoint scaling")
+    print("  • Precise waypoint proximity (2m threshold)")
     print("🗺️ Map: Town01")
     print("🎮 Press Ctrl+C to stop")
     print("=" * 60)
